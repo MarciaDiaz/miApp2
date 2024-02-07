@@ -1,4 +1,4 @@
-import { View, Text, Button, TextInput } from "react-native";
+import { View, Text, Button, TextInput, StyleSheet } from "react-native";
 
 const AddTask = ({
   taskTitle,
@@ -8,12 +8,13 @@ const AddTask = ({
   addTask,
 }) => {
   return (
-    <View style={styles.inputContainer}>
+    <View style={styles.container}>
       <Text>funciona?!</Text>
       <TextInput
         value={taskTitle}
         onChangeText={onHandlerTitle}
         placeholder="ingresar tarea:"
+        style={styles.input}
       />
       <TextInput
         value={taskDescription}
@@ -27,3 +28,25 @@ const AddTask = ({
   );
 };
 export default AddTask;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#872FF5",
+    alignItems: "center",
+    justifyContent: "space-around",
+    padding: 10,
+  },
+  input: {
+    width: "100%",
+    borderWidth: 2,
+    borderColor: "white",
+    marginHorizontal: 10,
+    marginVertical: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    color: "white",
+    fontSize: 16,
+    textAlignVertical: "top",
+  },
+});
