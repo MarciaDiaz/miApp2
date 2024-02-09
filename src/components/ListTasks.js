@@ -1,16 +1,26 @@
-import { StyleSheet, Text, View, Button, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList, Button } from "react-native";
+import React from "react";
 import CartTaskList from "./CartTaskList";
 
-const ListTasks = ({ tasks, onHandlerModalDelete }) => {
+const ListTasks = ({
+  tasks,
+  onHandlerModaDelete,
+  screenWidth,
+  updateTaskCompleted,
+}) => {
   return (
-    <View>
+    <View style={styles.tasksContainer}>
       <FlatList
+        horizontal={true}
+        pagingEnabled={true}
         data={tasks}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <CartTaskList
             item={item}
-            onHandlerModalDelete={onHandlerModalDelete}
+            onHandlerModaDelete={onHandlerModaDelete}
+            screenWidth={screenWidth}
+            updateTaskCompleted={updateTaskCompleted}
           />
         )}
       />
@@ -20,4 +30,8 @@ const ListTasks = ({ tasks, onHandlerModalDelete }) => {
 
 export default ListTasks;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  tasksContainer: {
+    padding: 10,
+  },
+});

@@ -1,4 +1,11 @@
-import { View, Text, Button, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  StyleSheet,
+  StatusBar,
+} from "react-native";
 
 const AddTask = ({
   taskTitle,

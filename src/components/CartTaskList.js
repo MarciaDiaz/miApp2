@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, StatusBar } from "react-native";
 
-const CartTaskList = (item, onHandlerModalDelete) => {
+const CartTaskList = (item, onHandlerModaDelete) => {
   return (
     <View style={styles.taskCard}>
       <Text style={styles.text}>{item.title}</Text>
-      <Button title="DEL" onPress={() => onHandlerModalDelete(item)} />
+      <Button title="DEL" onPress={() => onHandlerModaDelete(item)} />
     </View>
   );
 };

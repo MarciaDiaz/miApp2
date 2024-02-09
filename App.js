@@ -1,15 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  ScrollView,
-  FlatList,
-  Modal,
-} from "react-native";
+import { View, StyleSheet, Dimensions, Keyboard } from "react-native";
 import uuid from "react-native-uuid";
 import ModalDeleteTask from "./src/components/ModalDeleteTask";
 import AddTask from "./src/components/AddTask";
@@ -17,28 +7,29 @@ import ListTasks from "./src/components/ListTasks";
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [taskSelected, setTaskSeleted] = useState({});
+  const [taskSelected, setTaskSelected] = useState({});
   const [taskTitle, setTaskTitle] = useState("");
-  const [taskDescription, setTaskDescription] = useState("");
-
+  const [taskDescripcion, setTaskDescription] = useState("");
   const [tasks, setTasks] = useState([]);
+  const screenWidth = Dimensions.get("window").width;
 
   const addTask = () => {
     const newTask = {
       id: uuid.v4(),
-      createAt: new Date().toLocaleDateString(),
-      updateAt: new Date().toLocaleDateString(),
+      createAt: new Date().toLocaleString(),
+      updateAt: new Date().toLocaleString(),
+      completed: false,
       title: taskTitle,
-      description: taskDescription,
+      description: taskDescripcion,
     };
+
     setTasks([...tasks, newTask]);
-    console.log(tasks);
     setTaskTitle("");
     setTaskDescription("");
+    Keyboard.dismiss();
   };
 
   const onHandlerTitle = (t) => {
-    //const id = uuid.v4();
     setTaskTitle(t);
   };
 
@@ -46,8 +37,8 @@ const App = () => {
     setTaskDescription(t);
   };
 
-  const onHandlerModalDelete = (task) => {
-    setTaskSeleted(task);
+  const onHandlerModaDelete = (task) => {
+    setTaskSelected(task);
     setModalVisible(!modalVisible);
   };
 
@@ -55,21 +46,37 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id != taskSelected.id));
     setModalVisible(!modalVisible);
   };
+
+  const updateTaskCompleted = (id) => {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === id)
+          return { ...task, ...{ completed: !task.completed } };
+        return task;
+      })
+    );
+  };
+
   return (
     <View style={styles.container}>
       <AddTask
         taskTitle={taskTitle}
         onHandlerTitle={onHandlerTitle}
-        taskDescription={taskDescription}
+        taskDescripcion={taskDescripcion}
         onHandlerDescription={onHandlerDescription}
-        addTask={AddTask}
+        addTask={addTask}
       />
-      <ListTasks tasks={tasks} onHandlerModalDelete={onHandlerModalDelete} />
+      <ListTasks
+        tasks={tasks}
+        onHandlerModaDelete={onHandlerModaDelete}
+        screenWidth={screenWidth}
+        updateTaskCompleted={updateTaskCompleted}
+      />
       <ModalDeleteTask
         modalVisible={modalVisible}
         taskSelected={taskSelected}
         deleteTask={deleteTask}
-        onHandlerModalDelete={onHandlerModalDelete}
+        onHandlerModaDelete={onHandlerModaDelete}
       />
     </View>
   );
@@ -79,9 +86,8 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#F2E4F6",
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: 30,
   },
 });
