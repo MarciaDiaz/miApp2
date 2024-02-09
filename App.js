@@ -37,7 +37,7 @@ const App = () => {
     setTaskDescription(t);
   };
 
-  const onHandlerModaDelete = (task) => {
+  const onHandlerModalDelete = (task) => {
     setTaskSelected(task);
     setModalVisible(!modalVisible);
   };
@@ -49,11 +49,13 @@ const App = () => {
 
   const updateTaskCompleted = (id) => {
     setTasks(
-      tasks.map((task) => {
-        if (task.id === id)
-          return { ...task, ...{ completed: !task.completed } };
-        return task;
-      })
+      tasks.map((task) => (
+        <CartTaskList
+          key={task.id}
+          item={task}
+          onPress={onHandlerModalDelete} // Cambiado a onPress
+        />
+      ))
     );
   };
 
@@ -68,7 +70,7 @@ const App = () => {
       />
       <ListTasks
         tasks={tasks}
-        onHandlerModaDelete={onHandlerModaDelete}
+        onHandlerModalDelete={onHandlerModalDelete}
         screenWidth={screenWidth}
         updateTaskCompleted={updateTaskCompleted}
       />
@@ -76,7 +78,7 @@ const App = () => {
         modalVisible={modalVisible}
         taskSelected={taskSelected}
         deleteTask={deleteTask}
-        onHandlerModaDelete={onHandlerModaDelete}
+        onHandlerModalDelete={onHandlerModalDelete}
       />
     </View>
   );
