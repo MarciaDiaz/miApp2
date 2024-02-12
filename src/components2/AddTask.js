@@ -5,9 +5,10 @@ import {
   TextInput,
   StyleSheet,
   StatusBar,
+  ButtonPrimay,
 } from "react-native";
 
-const AddTask = ({
+const addTask = ({
   taskTitle,
   onHandlerTitle,
   taskDescription,
@@ -21,12 +22,19 @@ const AddTask = ({
         value={taskTitle}
         onChangeText={onHandlerTitle}
         placeholder="ingresar tarea:"
+        placeholderTextColor={"white"}
+        maxLength={25}
         style={styles.input}
       />
       <TextInput
         value={taskDescription}
         onChangeText={onHandlerDescription}
         placeholder="ingresar descripcion:"
+        placeholderTextColor={"white"}
+        multiline
+        numberOfLines={4}
+        maxLength={100}
+        style={styles.input}
       />
       <Button color="#B110DE" title="ADD" onPress={addTask} />
 
@@ -34,7 +42,7 @@ const AddTask = ({
     </View>
   );
 };
-export default AddTask;
+export default addTask;
 
 const styles = StyleSheet.create({
   container: {

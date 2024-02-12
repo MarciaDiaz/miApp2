@@ -4,7 +4,7 @@ import CartTaskList from "./CartTaskList";
 
 const ListTasks = ({
   tasks,
-  onHandlerModaDelete,
+  onHandlerModalDelete,
   screenWidth,
   updateTaskCompleted,
 }) => {
@@ -18,7 +18,7 @@ const ListTasks = ({
         renderItem={({ item }) => (
           <CartTaskList
             item={item}
-            onHandlerModaDelete={onHandlerModaDelete}
+            onHandlerModalDelete={onHandlerModalDelete}
             screenWidth={screenWidth}
             updateTaskCompleted={updateTaskCompleted}
           />
