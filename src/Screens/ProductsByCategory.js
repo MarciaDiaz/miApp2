@@ -18,7 +18,9 @@ const ProductsByCategory = ({ categorySelected }) => {
       <FlatList
         data={productsFiltered}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <ProductByCategory item={item} />}
+        renderItem={({ item }) => (
+          <ProductByCategory id={item.id} title={item.title} />
+        )}
       />
     </>
   );

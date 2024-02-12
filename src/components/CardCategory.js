@@ -7,7 +7,7 @@ const CardCategories = ({ item, selectedCategoryState }) => {
   return (
     <Pressable onPress={() => selectedCategoryState(item)}>
       <ShadowPrimary style={styles.container}>
-        <Text style={styles.Text}>{item}</Text>
+        <Text style={styles.text}>{item}</Text>
       </ShadowPrimary>
     </Pressable>
   );
@@ -17,14 +17,18 @@ export default CardCategories;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.orange2,
     width: "80%",
-    marginHorizontal: "10%",
-    alignItems: "center",
+    marginHorizontal: "10",
+    padding: 10,
     marginVertical: 10,
-    padding: 20,
-    backgroundColor: colors.primary,
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
   },
-  Text: {
+  text: {
+    width: "60%",
     fontSize: 16,
   },
 });
