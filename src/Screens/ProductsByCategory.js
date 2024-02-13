@@ -7,16 +7,27 @@ import Search from "../components/Search";
 
 const ProductsByCategory = ({ categorySelected }) => {
   const [productsFiltered, setProductsFiltered] = useState([]);
+  //filtrar para el buscador por palabra clave
+  const [keyword, setKeyword] = useState("");
+  //funcion que maneja la palabra clave
+  const handlerKeyword = (k) => {
+    setKeyword(k);
+  };
 
   useEffect(() => {
-    setProductsFiltered(
-      products.filter((product) => product.category === categorySelected)
-    );
-  }, [categorySelected]);
+    if (categorySelected)
+      setProductsFiltered(
+        products.filter((product) => product.category === categorySelected)
+      );
+    if (keyword)
+      setProductsFiltered(
+        productsFiltered.filter((product) => product.title.includes(keyword))
+      );
+  }, [categorySelected, keyword]);
   return (
     <>
       <Header title={categorySelected} />
-      <Search />
+      <Search handlerKeyword={handlerKeyword} />
 
       <FlatList
         data={productsFiltered}
