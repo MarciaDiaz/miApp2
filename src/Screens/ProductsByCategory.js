@@ -3,6 +3,7 @@ import products from "../utils/data/products.json";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import ProductByCategory from "../components/wrappers/ProductByCategory";
+import Search from "../components/Search";
 
 const ProductsByCategory = ({ categorySelected }) => {
   const [productsFiltered, setProductsFiltered] = useState([]);
@@ -15,6 +16,8 @@ const ProductsByCategory = ({ categorySelected }) => {
   return (
     <>
       <Header title={categorySelected} />
+      <Search />
+
       <FlatList
         data={productsFiltered}
         keyExtractor={(item) => item.id}

@@ -5,7 +5,7 @@ import Categories from "../components/Categories";
 const Home = ({ selectedCategoryState }) => {
   //recibe por parametro
   return (
-    <View>
+    <View style={styles.container}>
       <Header title="Home" />
       <Categories selectedCategoryState={selectedCategoryState} />
     </View>
@@ -14,4 +14,8 @@ const Home = ({ selectedCategoryState }) => {
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#F55DFC",
+  },
+});

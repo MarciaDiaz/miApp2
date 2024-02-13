@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../utils/globals/Color";
+import fonts from "../utils/globals/fonts";
 
 const Header = ({ title }) => {
   return (
@@ -22,5 +23,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 30,
+    fontFamily: fonts.RobotoBold,
   },
 });

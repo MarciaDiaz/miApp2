@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import ShadowPrimary from "./wrappers/ShadowPrimary";
 import colors from "../utils/globals/Color";
+import fonts from "../utils/globals/fonts";
 
 const CardCategories = ({ item, selectedCategoryState }) => {
   return (
@@ -30,5 +31,6 @@ const styles = StyleSheet.create({
   text: {
     width: "60%",
     fontSize: 16,
+    fontFamily: fonts.RobotoBlack,
   },
 });
