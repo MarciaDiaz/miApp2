@@ -5,10 +5,10 @@ import Categories from "../components/Categories";
 const Home = ({ selectedCategoryState }) => {
   //recibe por parametro
   return (
-    <View style={styles.container}>
+    <>
       <Header title="Home" />
       <Categories selectedCategoryState={selectedCategoryState} />
-    </View>
+    </>
   );
 };
 

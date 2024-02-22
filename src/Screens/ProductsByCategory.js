@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ProductByCategory from "../components/wrappers/ProductByCategory";
 import Search from "../components/Search";
 
-const ProductsByCategory = ({ categorySelected }) => {
+const ProductsByCategory = ({ categorySelected, selectedProductId }) => {
   const [productsFiltered, setProductsFiltered] = useState([]);
   //filtrar para el buscador por palabra clave
   const [keyword, setKeyword] = useState("");
@@ -33,7 +33,11 @@ const ProductsByCategory = ({ categorySelected }) => {
         data={productsFiltered}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <ProductByCategory id={item.id} title={item.title} />
+          <ProductByCategory
+            selectedProductId={selectedProductId}
+            id={item.id}
+            title={item.title}
+          />
         )}
       />
     </>

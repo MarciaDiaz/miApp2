@@ -4,6 +4,7 @@ import Home from "./src/Screens/Home";
 import ProductsByCategory from "./src/Screens/ProductsByCategory";
 import { useFonts } from "expo-font";
 import { fontCollection } from "./src/utils/globals/fonts";
+import ProductDetail from "./src/Screens/ProductDetail";
 
 const App = () => {
   const [categorySelected, setCategorySelected] = useState("");
@@ -13,17 +14,31 @@ const App = () => {
     setCategorySelected(category);
   };
   if (!fontsLoaded) return null;
+  const selectedProductId = (id) => {
+    selectedProductId(id);
+  };
   return (
-    <>
+    <View style={styles.container}>
       {categorySelected ? (
-        <ProductsByCategory categorySelected={categorySelected} />
+        productId ? (
+          <ProductDetail productId={productId} />
+        ) : (
+          <ProductsByCategory
+            selectedProductId={selectedProductId}
+            categorySelected={categorySelected}
+          />
+        )
       ) : (
         <Home selectedCategoryState={selectedCategoryState} />
       )}
-    </>
+    </View>
   );
 };
 
 export default App;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

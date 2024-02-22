@@ -1,20 +1,25 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import colors from "../../utils/globals/Color";
 
-const ProductByCategory = (item) => {
+const ProductByCategory = (item, selectedProductId) => {
   return (
-    <View style={styles.container}>
+    <Pressable
+      onPress={() => selectedProductId(item.id)}
+      style={styles.container}
+    >
       <Image
         style={styles.image}
         source={{ uri: item.thumbnail }}
         resizeMode="contain"
       />
-      <Text style={styles.text}>
+      <Text
+        style={[styles.text, width > 490 ? { fontSize: 24 } : { fontSize: 16 }]}
+      >
         {item.id}
         {item.title}
       </Text>
-    </View>
+    </Pressable>
   );
 };
 
@@ -37,7 +42,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   image: {
-    width: 90,
-    height: 90,
+    width: "30%",
+    minWidth: 90,
+    minheight: 90,
   },
 });
