@@ -13,10 +13,13 @@ const App = () => {
   const selectedCategoryState = (category) => {
     setCategorySelected(category);
   };
+  const [productId, setProductId] = useState(0);
   if (!fontsLoaded) return null;
+
   const selectedProductId = (id) => {
-    selectedProductId(id);
+    setProductId(id);
   };
+
   return (
     <View style={styles.container}>
       {categorySelected ? (

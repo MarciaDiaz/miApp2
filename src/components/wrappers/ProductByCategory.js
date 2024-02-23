@@ -2,7 +2,12 @@ import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import colors from "../../utils/globals/Color";
 
-const ProductByCategory = (item, selectedProductId) => {
+const ProductByCategory = ({ item, selectedProductId }) => {
+  // Verificar si item es undefined
+  if (!item) {
+    return null; // o puedes devolver algún otro componente de carga o manejar el caso de error según tu lógica
+  }
+
   return (
     <Pressable
       onPress={() => selectedProductId(item.id)}
@@ -16,8 +21,7 @@ const ProductByCategory = (item, selectedProductId) => {
       <Text
         style={[styles.text, width > 490 ? { fontSize: 24 } : { fontSize: 16 }]}
       >
-        {item.id}
-        {item.title}
+        {item.id} {item.title}
       </Text>
     </Pressable>
   );
@@ -29,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.orange2,
     width: "80%",
-    marginHorizontal: "10",
+    marginHorizontal: 10,
     padding: 10,
     marginVertical: 10,
     borderRadius: 10,
@@ -44,6 +48,6 @@ const styles = StyleSheet.create({
   image: {
     width: "30%",
     minWidth: 90,
-    minheight: 90,
+    minHeight: 90,
   },
 });
