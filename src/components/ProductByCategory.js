@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
-import colors from "../../utils/globals/Color";
+import colors from "../utils/globals/Color";
 
 const ProductByCategory = ({ item, selectedProductId }) => {
   // Verificar si item es undefined

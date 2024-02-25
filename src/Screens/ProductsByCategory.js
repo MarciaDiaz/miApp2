@@ -1,11 +1,11 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import products from "../utils/data/products.json";
-import Header from "../components/wrappers/Header";
+import Header from "../components/Header";
 import { useEffect, useState } from "react";
-import ProductByCategory from "../components/wrappers/ProductByCategory";
-import Search from "../components/wrappers/Search";
+import ProductByCategory from "../components/ProductByCategory";
+import Search from "../components/Search";
 
-const ProductsByCategory = ({ categorySelected, selectedProductId }) => {
+const ProductsByCategory = ({ categorySelected }) => {
   const [productsFiltered, setProductsFiltered] = useState([]);
   //filtrar para el buscador por palabra clave
   const [keyword, setKeyword] = useState("");

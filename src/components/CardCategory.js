@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import ShadowPrimary from "./ShadowPrimary";
-import colors from "../../utils/globals/Color";
-import fonts from "../../utils/globals/fonts";
+import ShadowPrimary from "./wrappers/ShadowPrimary";
+import colors from "../utils/globals/Color";
+import fonts from "../utils/globals/fonts";
 
 const CardCategories = ({ item }) => {
   return (

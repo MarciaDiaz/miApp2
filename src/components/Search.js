@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
-import colors from "../../utils/globals/Color";
+import colors from "../utils/globals/Color";
 import { useState } from "react";
 
 const Search = ({ handlerKeyword }) => {

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import products from "../utils/data/products.json";
 import { useEffect, useState } from "react";
-import Header from "../components/wrappers/Header";
+import Header from "../components/Header";
 import colors from "../utils/globals/Color";
 
 const ProductDetail = (productId) => {

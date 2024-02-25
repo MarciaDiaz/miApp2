@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
-import categories from "../../utils/data/categories.json";
+import categories from "../utils/data/categories.json";
 import CardCategory from "./CardCategory";
 
 const Categories = () => {
