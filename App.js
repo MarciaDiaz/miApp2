@@ -27,7 +27,17 @@ const App = () => {
         screenOptions={({ route }) => {
           return {
             header: () => {
-              return <Header />;
+              return (
+                <Header
+                  title={
+                    route.name === "Home"
+                      ? "Categorias"
+                      : route.name === "ProductsByCategory"
+                      ? route.params.categorySelected
+                      : "Detalle"
+                  }
+                />
+              );
             },
           };
         }}
