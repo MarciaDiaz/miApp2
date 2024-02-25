@@ -1,9 +1,9 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import products from "../utils/data/products.json";
-import Header from "../components/Header";
+import Header from "../components/wrappers/Header";
 import { useEffect, useState } from "react";
 import ProductByCategory from "../components/wrappers/ProductByCategory";
-import Search from "../components/Search";
+import Search from "../components/wrappers/Search";
 
 const ProductsByCategory = ({ categorySelected, selectedProductId }) => {
   const [productsFiltered, setProductsFiltered] = useState([]);

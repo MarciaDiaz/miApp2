@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import colors from "../utils/globals/Color";
-import fonts from "../utils/globals/fonts";
+import colors from "../../utils/globals/Color";
+import fonts from "../../utils/globals/fonts";
 
 const Header = ({ title }) => {
   return (

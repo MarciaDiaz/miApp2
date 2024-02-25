@@ -1,12 +1,12 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import ShadowPrimary from "./wrappers/ShadowPrimary";
-import colors from "../utils/globals/Color";
-import fonts from "../utils/globals/fonts";
+import ShadowPrimary from "./ShadowPrimary";
+import colors from "../../utils/globals/Color";
+import fonts from "../../utils/globals/fonts";
 
-const CardCategories = ({ item, selectedCategoryState }) => {
+const CardCategories = ({ item }) => {
   return (
-    <Pressable onPress={() => selectedCategoryState(item)}>
+    <Pressable onPress={() => console.log(item)}>
       <ShadowPrimary style={styles.container}>
         <Text style={styles.text}>{item}</Text>
       </ShadowPrimary>

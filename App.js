@@ -5,36 +5,20 @@ import ProductsByCategory from "./src/Screens/ProductsByCategory";
 import { useFonts } from "expo-font";
 import { fontCollection } from "./src/utils/globals/fonts";
 import ProductDetail from "./src/Screens/ProductDetail";
+import { StatusBar } from "expo-status-bar";
+import colors from "./src/utils/globals/Color";
 
 const App = () => {
-  const [categorySelected, setCategorySelected] = useState("");
   //asi se usa la libreria
   const [fontsLoaded] = useFonts(fontCollection);
-  const selectedCategoryState = (category) => {
-    setCategorySelected(category);
-  };
-  const [productId, setProductId] = useState(0);
+
   if (!fontsLoaded) return null;
 
-  const selectedProductId = (id) => {
-    setProductId(id);
-  };
-
   return (
-    <View style={styles.container}>
-      {categorySelected ? (
-        productId ? (
-          <ProductDetail productId={productId} />
-        ) : (
-          <ProductsByCategory
-            selectedProductId={selectedProductId}
-            categorySelected={categorySelected}
-          />
-        )
-      ) : (
-        <Home selectedCategoryState={selectedCategoryState} />
-      )}
-    </View>
+    <>
+      <StatusBar backgroundColor={colors.orange2} />
+      <Home />
+    </>
   );
 };
 
