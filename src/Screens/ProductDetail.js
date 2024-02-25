@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import colors from "../utils/globals/Color";
 
-const ProductDetail = (productId) => {
+const ProductDetail = (route) => {
+  const { productId } = route.params;
   const [product, setProduct] = useState({});
   useEffect(() => {
     const productFinded = products.find((product) => product.id === productId);

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 import colors from "../utils/globals/Color";
 
-const ProductByCategory = ({ item, selectedProductId }) => {
+const ProductByCategory = ({ item, navigation }) => {
   // Verificar si item es undefined
   if (!item) {
     return null; // o puedes devolver algún otro componente de carga o manejar el caso de error según tu lógica
@@ -10,7 +10,9 @@ const ProductByCategory = ({ item, selectedProductId }) => {
 
   return (
     <Pressable
-      onPress={() => selectedProductId(item.id)}
+      onPress={() =>
+        navigation.navigate("ProductDetail", { productId: item.id })
+      }
       style={styles.container}
     >
       <Image

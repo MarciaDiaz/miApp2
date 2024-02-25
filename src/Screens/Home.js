@@ -2,12 +2,13 @@ import { StyleSheet, Text, View, FlatList } from "react-native";
 import Header from "../components/Header";
 import Categories from "../components/Categories";
 
-const Home = () => {
+const Home = (navigation) => {
   //recibe por parametro
   return (
     <>
       <Header title="Home" />
-      <Categories />
+
+      <Categories navigation={navigation} />
     </>
   );
 };

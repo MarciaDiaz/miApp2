@@ -7,6 +7,10 @@ import { fontCollection } from "./src/utils/globals/fonts";
 import ProductDetail from "./src/Screens/ProductDetail";
 import { StatusBar } from "expo-status-bar";
 import colors from "./src/utils/globals/Color";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   //asi se usa la libreria
@@ -17,7 +21,16 @@ const App = () => {
   return (
     <>
       <StatusBar backgroundColor={colors.orange2} />
-      <Home />
+      <NavigationContainer />
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="ProductsByCategory"
+          component={ProductsByCategory}
+        />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} />
+      </Stack.Navigator>
+      <NavigationContainer />
     </>
   );
 };
