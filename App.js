@@ -9,11 +9,11 @@ import { StatusBar } from "expo-status-bar";
 import colors from "./src/utils/globals/Color";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "./src/components/Header";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  //asi se usa la libreria
   const [fontsLoaded] = useFonts(fontCollection);
 
   if (!fontsLoaded) return null;
@@ -22,7 +22,16 @@ const App = () => {
     <>
       <StatusBar backgroundColor={colors.orange2} />
       <NavigationContainer />
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={({ route }) => {
+          return {
+            header: () => {
+              return <Header />;
+            },
+          };
+        }}
+      >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen
           name="ProductsByCategory"
